@@ -74,10 +74,15 @@ spec:
           volumeMounts:
             - name: db-data
               mountPath: /var/lib/mysql
+            - name: dbcreation-script
+              mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance 
       volumes:
         - name: db-data
           persistentVolumeClaim:
             claimName: alpha-db-pvc
+        - name: dbcreation-script
+          configMap:
+            name: app-configmap
 
 
 ---

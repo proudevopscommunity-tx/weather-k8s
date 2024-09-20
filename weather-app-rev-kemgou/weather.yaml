@@ -12,9 +12,13 @@ spec:
       labels:
         app: alpha-weather
     spec:
+      initContainers:
+        - name: init-db
+          image: busybox:1.31
+          command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z db 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL DB Server has started";']
       containers:
         - name: alpha-weather
-          image: leonardtia/weather:latest
+          image: proudevops/weather:1.0.1 # leonardtia/weather:latest
           imagePullPolicy: Always  # Set the image pull policy to Always
           env:
             - name: APIKEY

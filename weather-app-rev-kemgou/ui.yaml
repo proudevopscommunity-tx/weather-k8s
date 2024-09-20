@@ -12,9 +12,13 @@ spec:
       labels:
         app: alpha-ui
     spec:
+      #      initContainers:
+      #        - name: init-db
+      #          image: busybox:1.31
+      #          command: ['sh', '-c', 'echo -e "Checking for the availability of Auth Server deployment"; while ! nc -z weather 8080; do sleep 1; printf "-"; done; echo -e "  >> Auth Server has started";']
       containers:
         - name: alpha-ui
-          image: leonardtia/ui-weather:latest
+          image: proudevops/ui-weather:latest  # leonardtia/ui-weather:latest
           imagePullPolicy: Always  # Set the image pull policy to Always
           env:
             - name: AUTH_HOST
