@@ -25,7 +25,7 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: app-secrets
+                  name: app-secrets-asm
                   key: REDIS_PASSWORD
           ports:
             - containerPort: 6379
