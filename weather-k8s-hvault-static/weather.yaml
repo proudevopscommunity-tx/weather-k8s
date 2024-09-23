@@ -24,7 +24,7 @@ spec:
             - name: APIKEY
               valueFrom:
                 secretKeyRef:
-                  name: app-secrets     
+                  name: app-secrets-vault
                   key: APIKEY
           ports:
             - containerPort: 5000

@@ -52,12 +52,12 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: app-secrets
+                  name: app-secrets-vault
                   key: MYSQL_ROOT_PASSWORD
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: app-secrets
+                  name: app-secrets-vault
                   key: MYSQL_PASSWORD
             - name: MYSQL_DATABASE
               valueFrom:
