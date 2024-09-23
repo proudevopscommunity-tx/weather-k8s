@@ -3,7 +3,7 @@
 # - asm: for  WS SECRETS MANAGER
 # - hvault-static: for HASHICORP VAULT STATIC SECRETS
 # - seal-secrets: for BITNAMI SEALED SECRETS
-# add clovis for pull request test
+# add clovis for second pull request test
 
 .
 ├── README.md
