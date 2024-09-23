@@ -4,6 +4,7 @@
 # - hvault-static: for HASHICORP VAULT STATIC SECRETS
 # - seal-secrets: for BITNAMI SEALED SECRETS
 # Added line clovi
+# Added a new line
 
 .
 ├── README.md
