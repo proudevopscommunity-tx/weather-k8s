@@ -3,6 +3,7 @@
 # - asm: for  WS SECRETS MANAGER
 # - hvault-static: for HASHICORP VAULT STATIC SECRETS
 # - seal-secrets: for BITNAMI SEALED SECRETS
+# Added line clovi
 
 .
 ├── README.md
