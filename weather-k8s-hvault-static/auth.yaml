@@ -24,7 +24,7 @@ spec:
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: app-configmap  
+                  name: app-configmap
                   key: DB_HOST
             - name: DB_PASSWORD
               valueFrom:
@@ -32,7 +32,7 @@ spec:
                   name: app-secrets-vault
                   key: DB_PASSWORD
             # ports:
-            # - containerPort: 8080 
+            # - containerPort: 8080
 
 
 ---
