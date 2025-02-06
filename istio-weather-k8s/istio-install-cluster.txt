@@ -1,0 +1,29 @@
+#!/bin/bash
+#istioctl install --set profile=demo -y  --set values.gateways.istio-ingressgateway.type=NodePort
+istioctl install --set profile=demo -y \
+  --set values.gateways.istio-ingressgateway.type=NodePort \
+  --set values.gateways.istio-ingressgateway.ports[0].name=status-port \
+  --set values.gateways.istio-ingressgateway.ports[0].nodePort=30000 \
+  --set values.gateways.istio-ingressgateway.ports[0].port=15021 \
+  --set values.gateways.istio-ingressgateway.ports[0].protocol=TCP \
+  --set values.gateways.istio-ingressgateway.ports[0].targetPort=15021 \
+  --set values.gateways.istio-ingressgateway.ports[1].name=http2 \
+  --set values.gateways.istio-ingressgateway.ports[1].nodePort=30001 \
+  --set values.gateways.istio-ingressgateway.ports[1].port=80 \
+  --set values.gateways.istio-ingressgateway.ports[1].protocol=TCP \
+  --set values.gateways.istio-ingressgateway.ports[1].targetPort=8080 \
+  --set values.gateways.istio-ingressgateway.ports[2].name=https \
+  --set values.gateways.istio-ingressgateway.ports[2].nodePort=30002 \
+  --set values.gateways.istio-ingressgateway.ports[2].port=443 \
+  --set values.gateways.istio-ingressgateway.ports[2].protocol=TCP \
+  --set values.gateways.istio-ingressgateway.ports[2].targetPort=8443 \
+  --set values.gateways.istio-ingressgateway.ports[3].name=tls \
+  --set values.gateways.istio-ingressgateway.ports[3].nodePort=30003 \
+  --set values.gateways.istio-ingressgateway.ports[3].port=15443 \
+  --set values.gateways.istio-ingressgateway.ports[3].protocol=TCP \
+  --set values.gateways.istio-ingressgateway.ports[3].targetPort=15443
+
+
+kubectl apply -f ./addons
+kubectl label namespace default istio-injection=enabled
+echo "ISTIO SUCCESSFULLY INSTALLED IN THE CLUSTER"

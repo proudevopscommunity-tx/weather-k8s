@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: ui-routing
+  namespace: default  #istio-system 
+spec:
+  exportTo:
+  - istio-system
+  hosts:
+  - ui.beitcloud.com
+  gateways:
+  - istio-system/weather-gateway  # istio-system/weather-gateway  # can omit the namespace if gateway is in the same namespace as virtual service. 
+  http:
+  - route:
+    - destination:
+        host: ui.default.svc.cluster.local  # The 'ui' service in the 'default' namespace
+        port:
+          number: 3000

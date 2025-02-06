@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata:
+  name: weather-gateway
+  namespace: istio-system  #istio-system  # VirtualService must reference the correct namespace of the Gateway: istio-system/my-gateway (namespace/<gateway-name>)
+spec:
+  selector:
+    app: istio-ingressgateway  # This label must match one label of the Istio IngressGateway pod running in the cluster.
+  servers:
+  - port:
+      number: 8080 #(targetPort for http2 in istio-ingressgateway svc) From Target Group: resource "aws_lb_target_group" "nlb_http_tg"
+      name: http
+      protocol: HTTP
+    hosts:
+    - '*.beitcloud.com'  # When a user opens http://ui.beitcloud.com in their browser, DNS resolves this domain to the external IP of the Istio Ingress Gateway (usually LoadBalancer Service).
+    tls:
+      httpsRedirect: true # Redirects all HTTP requests to HTTPS using a 301 Moved Permanently.
+  - port:
+      number: 8443 #(targetPort for https in istio-ingressgateway svc) From Target Group: resource "aws_lb_target_group" "nlb_https_tg"
+      name: https
+      protocol: HTTPS
+    hosts:
+    - '*.beitcloud.com'   # Redirect traffic: http://ui.beitcloud.com  → Redirected to  https://ui.beitcloud.com
+    tls:
+      mode: SIMPLE # enables HTTPS on this port (mode: SIMPLE).
+      credentialName: tls-secret  # Fetches the certs from Kubernetes Secret
+      

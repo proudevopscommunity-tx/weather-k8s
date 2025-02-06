@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"service.beta.kubernetes.io/aws-load-balancer-nlb-target-type":"instance","service.beta.kubernetes.io/aws-load-balancer-type":"external"},"creationTimestamp":"2025-01-31T06:35:11Z","finalizers":["service.k8s.aws/resources"],"labels":{"app":"istio-ingressgateway","app.kubernetes.io/instance":"istio","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"istio-ingressgateway","app.kubernetes.io/part-of":"istio","app.kubernetes.io/version":"1.24.2","helm.sh/chart":"istio-ingress-1.24.2","install.operator.istio.io/owning-resource":"unknown","install.operator.istio.io/owning-resource-namespace":"istio-system","istio":"ingressgateway","istio.io/rev":"default","operator.istio.io/component":"IngressGateways","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.24.2","release":"istio"},"name":"istio-ingressgateway","namespace":"istio-system","resourceVersion":"50834","uid":"815056a3-10cc-4893-ba08-441307487387"},"spec":{"allocateLoadBalancerNodePorts":true,"clusterIP":"172.20.79.239","clusterIPs":["172.20.79.239"],"externalTrafficPolicy":"Cluster","internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","loadBalancerClass":"service.k8s.aws/nlb","ports":[{"name":"status-port","nodePort":30215,"port":15021,"protocol":"TCP","targetPort":15021},{"name":"http2","nodePort":30985,"port":80,"protocol":"TCP","targetPort":8080},{"name":"https","nodePort":30291,"port":443,"protocol":"TCP","targetPort":8443},{"name":"tcp","nodePort":31972,"port":31400,"protocol":"TCP","targetPort":31400},{"name":"tls","nodePort":32145,"port":15443,"protocol":"TCP","targetPort":15443}],"selector":{"app":"istio-ingressgateway","istio":"ingressgateway"},"sessionAffinity":"None","type":"LoadBalancer"},"status":{"loadBalancer":{"ingress":[{"hostname":"k8s-istiosys-istioing-0a941b6313-ebc8ed62c5de440d.elb.us-east-1.amazonaws.com"}]}}}
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: instance
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+  creationTimestamp: "2025-01-31T07:46:14Z"
+  finalizers:
+  - service.k8s.aws/resources
+  labels:
+    app: istio-ingressgateway
+    app.kubernetes.io/instance: istio
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: istio-ingressgateway
+    app.kubernetes.io/part-of: istio
+    app.kubernetes.io/version: 1.24.2
+    helm.sh/chart: istio-ingress-1.24.2
+    install.operator.istio.io/owning-resource: unknown
+    install.operator.istio.io/owning-resource-namespace: istio-system
+    istio: ingressgateway
+    istio.io/rev: default
+    operator.istio.io/component: IngressGateways
+    operator.istio.io/managed: Reconcile
+    operator.istio.io/version: 1.24.2
+    release: istio
+  name: istio-ingressgateway
+  namespace: istio-system
+  resourceVersion: "53072"
+  uid: 8129ae2d-07a1-4c85-adfe-606c35babde4
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 172.20.79.239
+  clusterIPs:
+  - 172.20.79.239
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  loadBalancerClass: service.k8s.aws/nlb
+  ports:
+  - name: status-port
+    nodePort: 30215
+    port: 15021
+    protocol: TCP
+    targetPort: 15021
+  - name: http2
+    nodePort: 30985
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  - name: https
+    nodePort: 30291
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  - name: tcp
+    nodePort: 31972
+    port: 31400
+    protocol: TCP
+    targetPort: 31400
+  - name: tls
+    nodePort: 32145
+    port: 15443
+    protocol: TCP
+    targetPort: 15443
+  selector:
+    app: istio-ingressgateway
+    istio: ingressgateway
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: k8s-istiosys-istioing-30662640b6-bc96746c27e90d40.elb.us-east-1.amazonaws.com
