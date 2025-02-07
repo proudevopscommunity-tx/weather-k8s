@@ -8,3 +8,4 @@ tls.key
 tls.crt
 privkey.pem
 fullchain.pem
+tls-secret.yaml
