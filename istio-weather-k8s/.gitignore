@@ -1,3 +1,8 @@
 awssm-secret
 db-asm
 secrets
+istio-install-cluster.txt
+igw-svc.txt
+ingress.txt
+tls.key
+tls.crt
