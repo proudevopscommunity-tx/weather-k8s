@@ -6,3 +6,5 @@ igw-svc.txt
 ingress.txt
 tls.key
 tls.crt
+privkey.pem
+fullchain.pem
